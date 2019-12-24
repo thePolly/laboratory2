@@ -71,6 +71,7 @@
     <th>Last name</th>
     <th>Year of birth</th>
     <th>Delete author</th>
+    <th>Update</th>
     </thead>
     <tbody>
     <c:forEach items="${authors}" var="Author">
@@ -81,10 +82,13 @@
             <td>${Author.lastName} the Mysterious </td>
             <td>${Author.yearOfBirth}</td>
             <td align="center">
-                <form action="deleteAuthors" method="POST">
+                <form action="deleteAuthor" method="POST">
                     <input type="text" id="id" name="id" value="${Author.authorId}" hidden="true"/>
                     <input type="submit" value="Delete"/>
                 </form>
+            </td>
+            <td align="center">
+                <a href="authorUpdate?id=${Author.authorId}">Update</a>
             </td>
         </tr>
     </c:forEach>
